@@ -15,16 +15,33 @@ export const styles = mergeStyleSets({
         height:"25px",
         width:'25px',
         borderRadius:'25px',
-        marginRight:'4%'
+        marginRight:'4%',
+        "@media screen and (max-width:1023px)":{
+            display:'none'
+        },
+        "@media screen and (max-width:769px)":{
+            display:'unset'
+        }
     },
     planetName:{
-        width:"90%",
+        width:"100%",
         fontFamily:'Spartan',
         fontWeight:"bold",
-        fontSize:"5vw"
+        "@media screen and (max-width:1023px)":{
+
+        },
+        "@media screen and (max-width:769px)":{
+            fontSize:"5vw",
+        }
     },
     icon:{
         width:'5%',
+        "@media screen and (max-width:1023px)":{
+            display:'none'
+        },
+        "@media screen and (max-width:769px)":{
+            display:'unset'
+        },
         svg:{
             path:{
                 stroke:Colors.WHITE_40
