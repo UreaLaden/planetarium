@@ -8,9 +8,14 @@ export const styles = mergeStyleSets({
   mainNav: {
     height: "100%",
     display: "grid",
-    gridTemplate: "12% 1fr / 1fr",
-    rowGap: "4%",
     position: "relative",
-    
+    "@media screen and (max-width:1023px)":{
+        gridTemplate: "5% 1fr / 1fr",
+        rowGap: "0",
+    },
+    "@media screen and (max-width:769px)":{
+        gridTemplate: "12% 1fr / 1fr",
+        rowGap: "4%",
+    }
   },
 });

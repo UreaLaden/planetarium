@@ -51,6 +51,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
   const [currentPlanet, setCurrentPlanet] = React.useState<Planet | undefined>(
     undefined
   );
+  
 
   const setAllPlanetsHandler = (inputPlanets: Planet[]) => {
     const planetList = createPlanetList(inputPlanets);

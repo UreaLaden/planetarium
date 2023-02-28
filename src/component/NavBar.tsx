@@ -7,6 +7,7 @@ import {
 import * as React from "react";
 import NavigationCard from "./NavigationCard";
 import { Icon } from "@fluentui/react";
+import { WindowSpec, useWindowSize } from "@/utils/windowDimensions";
 
 export const NavBar = () => {
   const [showNavItems, setShowNavItems] = React.useState<boolean>(false);
@@ -14,21 +15,39 @@ export const NavBar = () => {
   const onNavToggleSelected = React.useCallback(() => {
     setShowNavItems(!showNavItems);
   }, [showNavItems]);
+  const window: WindowSpec = useWindowSize();
+
+  const isMobileView = React.useMemo(() => {
+    return window.width <= 769;
+  }, [window]);
+
+  React.useEffect(() => {
+    setShowNavItems(!isMobileView);
+  }, [isMobileView]);
   return (
     <>
       <h1 className={styles.navHeader}>THE PLANETS</h1>
-      {showNavItems && (
+      {isMobileView && showNavItems && (
         <div className={styles.navigationItems}>
           {context.planets.map((value: Planet, index: number) => (
             <NavigationCard key={index} planet={value} />
           ))}
         </div>
       )}
-      <Icon
-        onClick={onNavToggleSelected}
-        className={styles.navigationIcon}
-        iconName={"icon-hamburger"}
-      />
+      {!isMobileView && (
+        <div className={styles.navigationItems}>
+          {context.planets.map((value: Planet, index: number) => (
+            <NavigationCard key={index} planet={value} />
+          ))}
+        </div>
+      )}
+      {isMobileView && (
+        <Icon
+          onClick={onNavToggleSelected}
+          className={styles.navigationIcon}
+          iconName={"icon-hamburger"}
+        />
+      )}
     </>
   );
 };
