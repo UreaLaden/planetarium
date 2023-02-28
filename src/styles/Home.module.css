@@ -1,0 +1,17 @@
+.navHeader {
+    font-family: "Antonio Medium";
+    margin: 0;
+    font-size: 5vh;
+    line-height: auto;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+}
+
+.mainNav{
+    height:100%;
+    display:grid;
+    grid-template-columns: 3fr;
+    /* grid-template:10% 1fr / 1fr; */
+    /* row-gap:4%; */
+    /* position:relative; */
+    /* padding:5%; */
+}

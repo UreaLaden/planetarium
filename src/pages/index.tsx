@@ -1,5 +1,6 @@
 import Head from "next/head";
-import {styles} from "@/styles/Home.css";
+import { styles } from "@/styles/Home.css";
+import "@/styles/Home.module.css";
 import fs from "fs/promises";
 import path from "path";
 import * as React from "react";
@@ -9,20 +10,29 @@ import {
   PlanetContextProps,
 } from "@/utils/planet-context";
 import NavigationCard from "@/component/NavigationCard";
-import {registerIcons} from "@fluentui/react";
-import { SVGIcons } from "@/utils/helpers";
+import { Icon, initializeIcons, registerIcons } from "@fluentui/react";
+import { SVGIcons, planetData } from "@/utils/helpers";
+import NavBar from "@/component/NavBar";
 registerIcons(SVGIcons);
+initializeIcons();
 interface ResponseProps {
   planets: Planet[];
 }
 
 export const Home = (props: ResponseProps) => {
   const context = React.useContext<PlanetContextProps>(PlanetContext);
+  const [hydrated,setHydrated] = React.useState<boolean>(false);
+
+  React.useEffect(()=>{
+    setHydrated(true);
+  },[]);
+  
   React.useEffect(() => {
     if (context.planets.length > 0) return;
     context.populatePlanets(props.planets);
-  }, [props.planets, context]);
-  return (
+  }, [props.planets,context]);
+
+  return hydrated ?   (
     <div className={styles.mainContainer}>
       <Head>
         <title>Planetarium</title>
@@ -30,27 +40,19 @@ export const Home = (props: ResponseProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <h1>Main Page</h1>
-        <div className={"navigationMenu"}>
-        {context.planets.map((value: Planet, index: number) => (
-          <NavigationCard
-            key={index}
-            planet={value}
-          />
-        ))}
-        </div>
-      </main>
+      <div className={styles.mainNav}>
+        <NavBar />
+      </div>
     </div>
-  );
+  ) : null;
 };
 export default Home;
 
 export const getStaticProps = async () => {
-  const filePath = path.join(process.cwd(), "data", "data.json");
+  const filePath = path.join("public", "data", "data.json");
   const jsonData = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(jsonData);
   return {
     props: data,
   };
-};
+}
