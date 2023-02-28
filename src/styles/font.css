@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Spartan-Regular';
+    src: local('Spartan-Regular'),url('../fonts/Spartan-Regular.ttf') format('ttf'),
+    url('../fonts/Spartan-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: 'Antonio';
+    src: local('Antonio'),
+    url('../fonts/Antonio-VariableFont_wght.ttf') format('truetype'),
+    url('../fonts/Antonio-VariableFont_wght.woff') format('woff'),
+    url('../fonts/Antonio-VariableFont_wght.woff2') format('woff2');
+}

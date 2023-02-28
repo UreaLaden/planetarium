@@ -3,19 +3,23 @@ import {mergeStyleSets} from "@fluentui/react";
 export const styles = mergeStyleSets({
     navigationCardContainer:{
         display:'flex',
-        height:'100%',
-        minHeight:"5vh",
+        height:'auto',
+        minHeight:"8vh",
         border:"1px solid blue",
-        alignItems:'center'
+        alignItems:'center',
+        margin:"0 5%"
     },
     colorScheme:{
-        height:"15px",
-        width:'15px',
+        height:"25px",
+        width:'25px',
         borderRadius:'25px',
         marginRight:'4%'
     },
     planetName:{
-        width:"90%"
+        width:"90%",
+        fontFamily:'Spartan',
+        fontWeight:"bold",
+        fontSize:"5vw"
     },
     icon:{
         width:'5%',
