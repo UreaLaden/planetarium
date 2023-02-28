@@ -1,13 +1,15 @@
+import { Colors } from "@/utils/helpers";
 import {mergeStyleSets} from "@fluentui/react";
 
 export const styles = mergeStyleSets({
     navigationCardContainer:{
         display:'flex',
-        height:'auto',
-        minHeight:"8vh",
-        border:"1px solid blue",
+        height:'12%',
         alignItems:'center',
-        margin:"0 5%"
+        ":hover":{
+            cursor:"pointer",
+            backgroundColor:Colors.WHITE_40
+        }
     },
     colorScheme:{
         height:"25px",
@@ -25,7 +27,7 @@ export const styles = mergeStyleSets({
         width:'5%',
         svg:{
             path:{
-                stroke:'red'
+                stroke:Colors.WHITE_40
             }
         }
     }

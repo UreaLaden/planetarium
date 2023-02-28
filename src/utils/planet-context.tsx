@@ -23,6 +23,7 @@ export interface Planet {
   temperature: string;
   images: PlanetImages;
   colorScheme?:string;
+  index?:number;
 }
 
 export interface PlanetContextProps {
@@ -61,7 +62,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
     setCurrentPlanet(currentPlanet => planetToShow);
   }
 
-  const generatePlanet = (planet: Planet): Planet => {
+  const generatePlanet = (planet: Planet,planetIndex:number): Planet => {
     let overviewSpec: PlanetSpec = {
       content: planet.overview.content,
       source: planet.overview.source,
@@ -84,15 +85,16 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       structure: structureSpec,
       temperature: planet.temperature,
       images: planet.images,
-      colorScheme:planetColors.get(planet.name) ?? ""
+      colorScheme:planetColors.get(planet.name) ?? "",
+      index:planetIndex
     };
     return newPlanet;
   };
 
   const createPlanetList = (rawPlanetData: Planet[]): Planet[] => {
     let planetArray: Planet[] = [];
-    rawPlanetData.forEach((planet: Planet) => {
-      let newPlanet: Planet = generatePlanet(planet);
+    rawPlanetData.forEach((planet: Planet,index:number) => {
+      let newPlanet: Planet = generatePlanet(planet,index);
       planetArray.push(newPlanet);
     });
     return planetArray;
