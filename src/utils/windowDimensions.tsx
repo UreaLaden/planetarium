@@ -7,8 +7,8 @@ export interface WindowSpec {
 
 export const useWindowSize = (): WindowSpec => {
   const [windowSize, setWindowSize] = React.useState<WindowSpec>({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   React.useEffect(() => {
