@@ -1,4 +1,6 @@
+import Layout from "@/component/Layout";
+
 export const PlanetOverview = () => {
-    return <div>Planet Overview Page</div>
+    return <Layout/>
 };
 export default PlanetOverview;

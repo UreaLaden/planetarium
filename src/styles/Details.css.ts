@@ -9,9 +9,14 @@ export const styles = mergeStyleSets({
     color: Colors.WHITE,
   },
   detailsButtonContainer: {
+    backgroundColor:Colors.INDIAN_YELLOW,
     "@media screen and (max-width:1023px)": {
       gridRow: "10 / 13",
       gridColumn: "8 / 15",
+      display:'flex',
+      flexDirection:"column",
+      justifyContent:'center',
+      rowGap:"5%"
     },
     "@media (width <= 769px)": {
       display: "flex",
@@ -24,10 +29,19 @@ export const styles = mergeStyleSets({
     border: "none",
     color: Colors.WHITE_40,
     fontFamily: "Spartan SemiBold",
-    fontSize: "3vw",
-    ":hover": {
-      cursor: "pointer",
-      borderBottom: `3px solid ${Colors.MOONSTONE}`,
+    "@media screen and (max-width:1023px)": {
+        backgroundColor:Colors.CG_RED,
+        minHeight:"20%",
+        ":hover":{
+            cursor:'pointer'
+        }
+    },
+    "@media (width <= 769px)": {
+      fontSize: "3vw",
+      ":hover": {
+        cursor: "pointer",
+        borderBottom: `3px solid ${Colors.MOONSTONE}`,
+      },
     },
   },
 });

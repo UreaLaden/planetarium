@@ -13,6 +13,7 @@ import NavigationCard from "@/component/NavigationCard";
 import { Icon, initializeIcons, registerIcons } from "@fluentui/react";
 import { SVGIcons, planetData } from "@/utils/helpers";
 import NavBar from "@/component/NavBar";
+import Layout from "@/component/Layout";
 registerIcons(SVGIcons);
 initializeIcons();
 interface ResponseProps {
@@ -40,9 +41,7 @@ export const Home = (props: ResponseProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.mainNav}>
-        <NavBar />
-      </div>
+      <Layout/>
     </div>
   ) : null;
 };

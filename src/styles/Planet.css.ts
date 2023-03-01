@@ -14,35 +14,11 @@ export const styles = mergeStyleSets({
       gridTemplate: "12% 8% 1fr / 1fr",
     },
   },
-  detailsButtonContainer: {
-    backgroundColor:Colors.INDIAN_YELLOW,
-    "@media screen and (max-width:1023px)": {
-      gridRow: "10 / 13",
-      gridColumn: "8 / 15",
-    },
-    "@media (width <= 769px)": {
-      display: "flex",
-      justifyContent: "space-around",
-      borderBottom: `1px solid ${Colors.WHITE_40}`,
-    },
-  },
-  detailsButton: {
-    background: "none",
-    border: "none",
-    color: Colors.WHITE_40,
-    fontFamily: "Spartan SemiBold",
-    "@media (width <= 769px)": {
-      fontSize: "3vw",
-      ":hover": {
-        cursor: "pointer",
-        borderBottom: `3px solid ${Colors.MOONSTONE}`,
-      },
-    },
-  },
   contentContainer: {
     display: "grid",
     width: "100%",
     height: "100%",
+    pointerEvents:"none",
     "@media (width <= 1024px)": {
       height: "100%",
       gridRow: "3 / -1",
@@ -94,31 +70,5 @@ export const styles = mergeStyleSets({
     width: "100%",
     height: "auto",
   },
-  planetStats: {
-    backgroundColor: Colors.ULTRAMARINE_BLUE,
-    width: "100%",
-    height: "100%",
-    "@media screen and (max-width:1023px)": {
-      gridRow: "13 / 15",
-      gridColumn: "1 / -1",
-      display: "flex",
-      justifyContent: "space-between",
-    },
-    "@media (width =< 769px)": {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-around",
-      gap: "5%",
-      gridRow: "10 / 15",
-    },
-  },
-  planetStatsCard: {
-    backgroundColor: Colors.MOONSTONE,
-    "@media screen and (max-width:1023px)":{
-        minWidth:"24%"
-    },
-    "@media (width =< 769px)": {
-        height: "100%",
-    }
-  },
+
 });

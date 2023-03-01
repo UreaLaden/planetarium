@@ -8,7 +8,6 @@ export const styles = mergeStyleSets({
         alignItems:'center',
         ":hover":{
             cursor:"pointer",
-            backgroundColor:Colors.WHITE_40
         }
     },
     colorScheme:{
