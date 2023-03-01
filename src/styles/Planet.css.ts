@@ -51,7 +51,7 @@ export const styles = mergeStyleSets({
       gridRow: "9 / 13",
       gridColumn: "1 / 8",
     },
-    "@media (width =< 769px)": {
+    "@media (width <= 769px)": {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
