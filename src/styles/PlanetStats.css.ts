@@ -13,11 +13,10 @@ export const styles = mergeStyleSets({
       justifyContent: "space-between",
       alignItems: "center",
     },
-    "@media (width =< 769px)": {
+    "@media (width <= 769px)": {
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-around",
-      gap: "5%",
+      maxHeight:"15vh",
       gridRow: "10 / 15",
     },
   },
@@ -27,8 +26,8 @@ export const styles = mergeStyleSets({
       minWidth: "24%",
       minHeight: "80%",
     },
-    "@media (width =< 769px)": {
-      height: "100%",
+    "@media (width <= 769px)": {
+      width:"100%",
     },
   },
 });

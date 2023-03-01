@@ -2,12 +2,6 @@ import { Colors } from "@/utils/helpers";
 import { mergeStyleSets } from "@fluentui/react";
 
 export const styles = mergeStyleSets({
-  mainContainer: {
-    display: "grid",
-    gridTemplate: "5rem 3rem 1fr / 1fr",
-    height: "100vh",
-    color: Colors.WHITE,
-  },
   detailsButtonContainer: {
     backgroundColor:Colors.INDIAN_YELLOW,
     "@media screen and (max-width:1023px)": {
@@ -19,7 +13,10 @@ export const styles = mergeStyleSets({
       rowGap:"5%"
     },
     "@media (width <= 769px)": {
+      gridRow:"2 / 3",
+      gridColumn:"1 / -1",
       display: "flex",
+      flexDirection:'row',
       justifyContent: "space-around",
       borderBottom: `1px solid ${Colors.WHITE_40}`,
     },
@@ -38,6 +35,7 @@ export const styles = mergeStyleSets({
     },
     "@media (width <= 769px)": {
       fontSize: "3vw",
+      width:"100%",
       ":hover": {
         cursor: "pointer",
         borderBottom: `3px solid ${Colors.MOONSTONE}`,
