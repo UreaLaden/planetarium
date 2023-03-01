@@ -9,9 +9,15 @@ export const styles = mergeStyleSets({
     color: Colors.WHITE,
   },
   detailsButtonContainer: {
-    display: "flex",
-    justifyContent: "space-around",
-    borderBottom: `1px solid ${Colors.WHITE_40}`,
+    "@media screen and (max-width:1023px)": {
+      gridRow: "10 / 13",
+      gridColumn: "8 / 15",
+    },
+    "@media (width <= 769px)": {
+      display: "flex",
+      justifyContent: "space-around",
+      borderBottom: `1px solid ${Colors.WHITE_40}`,
+    },
   },
   detailsButton: {
     background: "none",
