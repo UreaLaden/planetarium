@@ -8,34 +8,28 @@ export const DetailButtons = () => {
   const context = React.useContext<PlanetContextProps>(PlanetContext);
 
   const onOverviewButtonSelected = () => {
+    context.setCurrentSpec(1);
     router.push({
       pathname: "/planets/[planetId]/[reportId]",
-      query: { planetId: context.currentPlanet?.name, reportId: 1 },
+      query: { planetId: context.currentPlanet?.id, reportId: 1 },
     });
   };
 
   const onStructureButtonSelected = () => {
+    context.setCurrentSpec(2);
     router.push({
       pathname: "/planets/[planetId]/[reportId]",
-      query: { planetId: context.currentPlanet?.name, reportId: 2 },
+      query: { planetId: context.currentPlanet?.id, reportId: 2 },
     });
   };
   const onSurfaceButtonSelected = () => {
+    context.setCurrentSpec(3);
     router.push({
       pathname: "/planets/[planetId]/[reportId]",
-      query: { planetId: context.currentPlanet?.name, reportId: 3 },
+      query: { planetId: context.currentPlanet?.id, reportId: 3 },
     });
   };
-  const content = React.useMemo(() => {
-    switch (router.query.reportId) {
-      case "1":
-        return context.currentPlanet?.overview.content;
-      case "2":
-        return context.currentPlanet?.structure.content;
-      case "3":
-        return context.currentPlanet?.geology.content;
-    }
-  }, [router.query.reportId]);
+ 
   return (
     <div className={styles.detailsButtonContainer}>
       <button

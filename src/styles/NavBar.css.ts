@@ -7,7 +7,14 @@ export const styles = mergeStyleSets({
   },
   navigationItems: {
       display: "visible",
-      "@media screen and (max-width:1023px)": {
+      "@media (width >= 1023px)":{
+        display:'flex',
+        gridRow:"1 / 2",
+        gridColumn:"8 / -1",
+        alignItems:"center",
+        justifyContent:'space-around'
+      },
+      "@media (765px < width < 1023px)": {
       display: "flex",
       justifyContent: "space-around",
       borderBottom: `1px solid ${Colors.WHITE_40}`,
@@ -17,7 +24,7 @@ export const styles = mergeStyleSets({
       paddingTop:"2%",
       paddingBottom:"2%"
     },
-    "@media screen and (max-width:769px)": {
+    "@media (320px < width < 480px)": {
       padding: "5% 5% 0 5%",
       display: "block",
     },
@@ -30,14 +37,21 @@ export const styles = mergeStyleSets({
   navHeader: {
     fontFamily: "Antonio Medium",
     margin: 0,
-    fontSize: "5vh",
     lineHeight: "auto",
-    "@media screen and (max-width:1023px)": {
+    "@media (width >= 1023px)":{
+      gridRow:"1 / 2",
+      gridColumn:"1 / 8",
+      padding:"5%"
+    },
+    "@media (765px < width < 1023px)": {
+      fontSize: "5vh",
       textAlign: "center",
       gridColumn:"1 / -1",
       gridRow:"1 / 3"
     },
-    "@media screen and (max-width:769px)": {
+    "@media (320px < width < 480px)": {
+      fontSize: "4vh",
+      textAlign:"left",
       padding: "5% 5% 0 5%",
       borderBottom: `2px solid ${Colors.WHITE_40}`,
     },

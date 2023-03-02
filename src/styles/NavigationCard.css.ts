@@ -15,10 +15,13 @@ export const styles = mergeStyleSets({
         width:'25px',
         borderRadius:'25px',
         marginRight:'4%',
-        "@media screen and (max-width:1023px)":{
+        "@media (width >= 1023px)": {
+            display:"none"
+        },
+        "@media (765px < width < 1023px)": {
             display:'none'
         },
-        "@media screen and (max-width:769px)":{
+        "@media (320px < width < 480px)": {
             display:'unset'
         }
     },
@@ -26,19 +29,24 @@ export const styles = mergeStyleSets({
         width:"100%",
         fontFamily:'Spartan',
         fontWeight:"bold",
-        "@media screen and (max-width:1023px)":{
+        "@media (width >= 1023px)": {
+        },     
+        "@media (765px < width < 1023px)": {
 
         },
-        "@media screen and (max-width:769px)":{
+        "@media (320px < width < 480px)": {
             fontSize:"5vw",
         }
     },
     icon:{
         width:'5%',
-        "@media screen and (max-width:1023px)":{
+        "@media (width >= 1023px)": {
+            display:"none"
+        },        
+        "@media (765px < width < 1023px)": {
             display:'none'
         },
-        "@media screen and (max-width:769px)":{
+        "@media (320px < width < 480px)": {
             display:'unset'
         },
         svg:{

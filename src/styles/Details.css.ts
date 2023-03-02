@@ -3,8 +3,15 @@ import { mergeStyleSets } from "@fluentui/react";
 
 export const styles = mergeStyleSets({
   detailsButtonContainer: {
-    backgroundColor:Colors.INDIAN_YELLOW,
-    "@media screen and (max-width:1023px)": {
+    border:`2px solid ${Colors.INDIAN_YELLOW}`,
+    "@media (width >= 1023px)":{
+      gridRow:"8 / 11",
+      gridColumn:"10 / 15",
+      display:'flex',
+      flexDirection:"column",
+      justifyContent:"space-around"
+    },
+    "@media (765px < width < 1023px)": {
       gridRow: "10 / 13",
       gridColumn: "8 / 15",
       display:'flex',
@@ -12,7 +19,7 @@ export const styles = mergeStyleSets({
       justifyContent:'center',
       rowGap:"5%"
     },
-    "@media (width <= 769px)": {
+    "@media (320px < width < 480px)": {
       gridRow:"2 / 3",
       gridColumn:"1 / -1",
       display: "flex",
@@ -26,14 +33,14 @@ export const styles = mergeStyleSets({
     border: "none",
     color: Colors.WHITE_40,
     fontFamily: "Spartan SemiBold",
-    "@media screen and (max-width:1023px)": {
-        backgroundColor:Colors.CG_RED,
+    "@media (765px < width < 1023px)": {
+        border:`2px solid ${Colors.CG_RED}`,
         minHeight:"20%",
         ":hover":{
             cursor:'pointer'
         }
     },
-    "@media (width <= 769px)": {
+    "@media (320px < width < 480px)": {
       fontSize: "3vw",
       width:"100%",
       ":hover": {
