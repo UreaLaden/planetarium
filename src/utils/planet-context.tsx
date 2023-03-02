@@ -144,7 +144,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       images: planet.images,
       colorScheme: planetColors.get(planet.name) ?? "",
     };
-    console.table(newPlanet);
+    console.table(newPlanet.images);
     return newPlanet;
   };
 

@@ -1,5 +1,5 @@
 export const planetColors:Map<string,string> = new Map<string,string>();
-planetColors.set("Mercury","#DEF4FC");
+planetColors.set("Mercury","#419EBB");
 planetColors.set("Venus","#F7CC7F");
 planetColors.set("Earth","#545BFE");
 planetColors.set("Mars","#FF6A45");
