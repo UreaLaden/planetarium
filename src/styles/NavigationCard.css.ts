@@ -15,6 +15,9 @@ export const styles = mergeStyleSets({
         width:'25px',
         borderRadius:'25px',
         marginRight:'4%',
+        "@media (width > 1024px)":{
+            display:"none"
+        },
         "@media screen and (max-width:1023px)":{
             display:'none'
         },

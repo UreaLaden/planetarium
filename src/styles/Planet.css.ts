@@ -5,13 +5,17 @@ export const styles = mergeStyleSets({
   mainContainer: {
     display: "grid",
     color: Colors.WHITE,
+    "@media screen and  (min-width:1024px)": {
+      height:"100vh",
+      gridTemplate:"repeat(14,1fr) / repeat(14,1fr)"
+    },
     "@media screen and  (max-width:1023px)": {
       height: "100vh",
       gridTemplate: "repeat(14,1fr) / repeat(14,1fr)",
     },
     "@media (width <= 769px)": {
       height: "100vh",
-      gridTemplate: "12% 8% 1fr / 1fr",
+      gridTemplate: "10% 8% 1fr / 1fr",
     },
   },
   contentContainer: {
@@ -19,7 +23,12 @@ export const styles = mergeStyleSets({
     width: "100%",
     height: "100%",
     pointerEvents:"none",
-    "@media (width <= 1024px)": {
+    "@media (width > 1023px)":{
+      gridRow:"2 / 14",
+      gridColumn:"1 / -1",
+      gridTemplate: "repeat(14,1fr) / repeat(14,1fr)",
+    },
+    "@media (width <= 1023px)": {
       height: "100%",
       gridRow: "3 / -1",
       gridColumn: "1 / -1",
@@ -34,7 +43,11 @@ export const styles = mergeStyleSets({
     backgroundColor: Colors.CG_RED,
     width: "100%",
     height: "100%",
-    "@media screen and (max-width:1023px)": {
+    "@media (width > 1023px)": {
+      gridRow:"1 / 11",
+      gridColumn:"1 / 10"
+    },
+    "@media (width <= 1023px)": {
       gridRow: "1 / 9",
       gridColumn: "1 / -1",
     },
@@ -47,7 +60,11 @@ export const styles = mergeStyleSets({
     backgroundColor: Colors.CINNABAR,
     width: "100%",
     height: "100%",
-    "@media screen and (max-width:1023px)": {
+    "@media (width > 1023px)": {
+      gridRow:"1 / 8",
+      gridColumn:"10 / -1 "
+    },
+    "@media (width <= 1023px)": {
       gridRow: "9 / 13",
       gridColumn: "1 / 8",
     },

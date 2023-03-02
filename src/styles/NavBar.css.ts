@@ -7,6 +7,13 @@ export const styles = mergeStyleSets({
   },
   navigationItems: {
       display: "visible",
+      "@media (width > 1024px)":{
+        display:'flex',
+        gridRow:"1 / 2",
+        gridColumn:"8 / -1",
+        alignItems:"center",
+        justifyContent:'space-around'
+      },
       "@media screen and (max-width:1023px)": {
       display: "flex",
       justifyContent: "space-around",
@@ -30,14 +37,21 @@ export const styles = mergeStyleSets({
   navHeader: {
     fontFamily: "Antonio Medium",
     margin: 0,
-    fontSize: "5vh",
     lineHeight: "auto",
+    "@media (width > 1024px)":{
+      gridRow:"1 / 2",
+      gridColumn:"1 / 8",
+      padding:"5%"
+    },
     "@media screen and (max-width:1023px)": {
+      fontSize: "5vh",
       textAlign: "center",
       gridColumn:"1 / -1",
       gridRow:"1 / 3"
     },
     "@media screen and (max-width:769px)": {
+      fontSize: "4vh",
+      textAlign:"left",
       padding: "5% 5% 0 5%",
       borderBottom: `2px solid ${Colors.WHITE_40}`,
     },

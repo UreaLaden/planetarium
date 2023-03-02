@@ -4,6 +4,13 @@ import { mergeStyleSets } from "@fluentui/react";
 export const styles = mergeStyleSets({
   detailsButtonContainer: {
     backgroundColor:Colors.INDIAN_YELLOW,
+    "@media (width > 1024px)":{
+      gridRow:"8 / 11",
+      gridColumn:"10 / 15",
+      display:'flex',
+      flexDirection:"column",
+      justifyContent:"space-around"
+    },
     "@media screen and (max-width:1023px)": {
       gridRow: "10 / 13",
       gridColumn: "8 / 15",

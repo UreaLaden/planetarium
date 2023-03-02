@@ -6,7 +6,13 @@ export const styles = mergeStyleSets({
     backgroundColor: Colors.ULTRAMARINE_BLUE,
     width: "100%",
     height: "100%",
-    "@media screen and (max-width:1023px)": {
+    "@media (width > 1024px)": {
+      gridRow:"12 / 15",
+      gridColumn:"2 / 14",
+      display:"flex",
+      justifyContent:"space-between"
+    },
+    "@media (width <= 1023px)": {
       gridRow: "13 / 15",
       gridColumn: "1 / -1",
       display: "flex",
@@ -22,6 +28,10 @@ export const styles = mergeStyleSets({
   },
   planetStatsCard: {
     backgroundColor: Colors.MOONSTONE,
+    border:`1px solid ${Colors.RICH_BLACK}`,
+    "@media (width > 1023px)": {
+      minWidth:"24%"
+    },
     "@media screen and (max-width:1023px)": {
       minWidth: "24%",
       minHeight: "80%",
