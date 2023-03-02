@@ -21,14 +21,14 @@ export const NavigationCard = (props: NavigationCardProps) => {
   }
 
   const isMobileView = React.useMemo(() => {
-    return window.width <= 769;
+    return window.width < 765;
   }, [window]);
 
 
   const isFirstOrLastPlanet = React.useMemo(() =>{
-    if(!planet.index) return false;    
-    return (planet.index <= 0 || planet.index >= context.planets.length - 1);
-  },[planet.index,context.planets.length])
+    if(!planet.id) return false;    
+    return (planet.id <= 0 || planet.id >= context.planets.length - 1);
+  },[planet.id,context.planets.length])
 
   return (
     <div 
@@ -37,9 +37,9 @@ export const NavigationCard = (props: NavigationCardProps) => {
         onClick={() => {
             router.push({
             pathname:'/planets/[planetId]',
-            query:{planetId:planet.name}
+            query:{planetId:planet.id}
         });
-        context.showPlanet(props.planet);
+        context.showPlanet(planet);
         }}
         >
       <div className={styles.colorScheme} style={navigationCardStyles}></div>

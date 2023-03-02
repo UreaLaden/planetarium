@@ -18,7 +18,7 @@ export const NavBar = () => {
   const window: WindowSpec = useWindowSize();
 
   const isMobileView = React.useMemo(() => {
-    return window.width <= 769;
+    return window.width < 765;
   }, [window]);
 
   React.useEffect(() => {

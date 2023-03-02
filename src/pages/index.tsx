@@ -14,8 +14,7 @@ import { Icon, initializeIcons, registerIcons } from "@fluentui/react";
 import { SVGIcons, planetData } from "@/utils/helpers";
 import NavBar from "@/component/NavBar";
 import Layout from "@/component/Layout";
-registerIcons(SVGIcons);
-initializeIcons();
+
 interface ResponseProps {
   planets: Planet[];
 }
@@ -25,8 +24,10 @@ export const Home = (props: ResponseProps) => {
   const [hydrated, setHydrated] = React.useState<boolean>(false);
 
   React.useEffect(() => {
+    if(context.currentPlanet === undefined) return;
+    context.setCurrentSpec(1);
     setHydrated(true);
-  }, []);
+  }, [context]);
 
   React.useEffect(() => {
     if (context.planets.length > 0) return;
@@ -51,6 +52,7 @@ export const getStaticProps = async () => {
   const filePath = path.join("public", "data", "data.json");
   const jsonData = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(jsonData);
+
   return {
     props: data,
   };

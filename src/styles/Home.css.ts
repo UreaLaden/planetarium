@@ -9,11 +9,11 @@ export const styles = mergeStyleSets({
     height: "100%",
     display: "grid",
     position: "relative",
-    "@media screen and (max-width:1023px)":{
+    "@media (765px < width < 1023px)": {
         gridTemplate: "5% 1fr / 1fr",
         rowGap: "0",
     },
-    "@media screen and (max-width:769px)":{
+    "@media (320px < width < 480px)": {
         gridTemplate: "12% 1fr / 1fr",
         rowGap: "4%",
     }
