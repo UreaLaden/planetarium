@@ -33,6 +33,7 @@ export const styles = mergeStyleSets({
       gridRow: "3 / -1",
       gridColumn: "1 / -1",
       gridTemplate: "repeat(14,1fr) / repeat(14,1fr)",
+      padding:"0 5%"
     },
     "@media (320px < width < 480px)": {
       height: "150%",
@@ -44,9 +45,12 @@ export const styles = mergeStyleSets({
     border: `2px solid ${Colors.CG_RED}`,
     width: "100%",
     height: "100%",
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
     "@media (width >= 1023px)":{
       gridRow:"1 / 11",
-      gridColumn:"1 / 10"
+      gridColumn:"2 / 10"
     },
     "@media (765px < width < 1023px)": {
       gridRow: "1 / 9",
@@ -58,35 +62,112 @@ export const styles = mergeStyleSets({
     },
   },
   planetCopy: {
-    border:`2px solid ${ Colors.CINNABAR}`,
     width: "100%",
     height: "100%",
     "@media (width >= 1023px)":{
       gridRow:"1 / 8",
-      gridColumn:"10 / -1 "
+      gridColumn:"10 / 14",
+      display:'flex',    
+      flexDirection: "column",
+      justifyContent:"center",
+      alignItems: "left",
+      rowGap:"2%"
     },
     "@media (765px < width < 1023px)": {
       gridRow: "9 / 13",
-      gridColumn: "1 / 8",
+      gridColumn: "1 / 8",  
+      display:'flex',    
+      flexDirection: "column",
+      justifyContent:"center",
+      alignItems: "left",
+      rowGap:"5%"
     },
     "@media (320px < width < 480px)": {
+      gridRow: "6 / 10",
       display: "flex",
       flexDirection: "column",
+      justifyContent:"center",
       alignItems: "center",
-      gridRow: "6 / 10",
+      rowGap:"5%"
+
     },
   },
   planetCopyTextHeader: {
-    height: "auto",
+    "@media (width >= 1023px)":{
+      lineHeight:0,
+      height:"auto",
+      fontSize:"5rem"
+    },
+    "@media (765px < width < 1023px)": {
+      lineHeight:0,
+      height:"auto",
+      fontSize:"3.4rem"
+    },
+    "@media (320px < width < 480px)": {
+      lineHeight:0,
+      height:"auto",
+      fontSize:"3rem"
+    },
   },
   planetCopyText: {
     height: "auto",
     width: "100%",
+    "@media (width >= 1023px)":{
+      fontFamily:"Spartan",
+      textAlign:'left',
+      height:"auto",
+      fontSize:"1.1vw",
+      lineHeight:"1.8vw",
+    },
+    "@media (765px < width < 1023px)": {
+      fontFamily:"Spartan",
+      textAlign:'left',
+      height:"auto",
+      fontSize:"1.5vw",
+      lineHeight:"3vw",
+      maxWidth:"95%"
+    },
+    "@media (320px < width < 480px)": {
+      fontFamily:"Spartan",
+      textAlign:'center',
+      height:"auto",
+      fontSize:"3vw",
+      lineHeight:"3vh"
+    },
   },
   planetSource: {
-    border:`2px solid ${ Colors.INDIAN_YELLOW}`,
     width: "100%",
     height: "auto",
+    color:Colors.WHITE_40,
+    "@media (width >= 1023px)":{
+      fontFamily:"Spartan",
+      textAlign:'left',
+      height:"auto",
+      fontSize:".8vw",
+    },
+    "@media (765px < width < 1023px)": {
+      fontFamily:"Spartan",
+      textAlign:'left',
+      height:"auto",
+      fontSize:"2vw"
+    },
+    "@media (320px < width < 480px)": {
+      fontFamily:"Spartan",
+      textAlign:'center',
+      height:"auto",
+      fontSize:"3vw"
+    },
   },
+  planetSourceLink:{
+    textDecoration:"underline",
+    fontWeight:"bold",
+    color:Colors.WHITE_40,
+  },
+  planetSourceIcon:{
+    paddingLeft:".5rem",
+    svg:{
+      
+    }
+  }
 
 });
