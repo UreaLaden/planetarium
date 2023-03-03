@@ -7,11 +7,8 @@ import { useRouter } from "next/router";
 import * as React from "react";
 
 export const Details = () => {
-  const context = React.useContext<PlanetContextProps>(PlanetContext);
-  const router = useRouter();
-
   return (
-    <Layout specId={router.query.reportId}/>
+    <Layout/>
   );
 };
 

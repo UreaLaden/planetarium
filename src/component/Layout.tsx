@@ -8,7 +8,7 @@ import { SVGIcons } from '@/utils/helpers';
 
 registerIcons(SVGIcons);
 
-export const Layout = (props:any) => {
+export const Layout = () => {
     return(<div className={styles.mainContainer}>
         <NavBar />
         <DetailButtons />

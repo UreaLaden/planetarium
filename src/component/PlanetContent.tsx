@@ -16,46 +16,35 @@ export const PlanetContent = (props: any) => {
   );
 
   React.useEffect(() => {
-    if (context.currentPlanet) {
+    if (context.currentPlanet !== currentPlanet) {
       setCurrentPlanet(context.currentPlanet);
       context.setCurrentSpec(1);
     }
-  }, [context.currentPlanet]);
+  }, [context, currentPlanet]);
 
   const imageName = React.useMemo(() => {
-    const svgRegex = new RegExp(/\w*-?\w*.svg/gm);
-    const pngRegex = new RegExp(/\w*-?\w*.png/gm);
-    const svgMatch = context.currentPlanetSpec?.image.match(svgRegex);
-    const pngMatch = context.currentPlanetSpec?.image.match(pngRegex);
-    const match = svgMatch || pngMatch;
-    console.log(`Matching ${context.currentPlanetSpec?.image} Match: ${match}`);
-    if (match) {
-      const currentMatch = match[0].split(".")[0];
-      const hasPlanet = currentMatch.match(new RegExp(/planet-/gm));
-      if (hasPlanet) {
-        return currentMatch.replace(hasPlanet[0], "");
-      } else {
-        return currentMatch;
-      }
+    console.log(context.currentPlanetSpec?.image);
+    if (context.currentPlanetSpec?.id == 2) {
+      return context.currentPlanet?.overview.image;
     }
-    console.log("No match");
-  }, [context.currentPlanetSpec]);
+    return context.currentPlanetSpec?.image;
+  }, [
+    context.currentPlanet?.overview.image,
+    context.currentPlanetSpec?.id,
+    context.currentPlanetSpec?.image,
+  ]);
 
   return (
     <div className={styles.contentContainer}>
       <div className={styles.planetImage}>
-        <If condition={context.currentPlanetSpec?.id === 2}>
-          <Then>
-            <div>{imageName}</div>
-            <Image
-              src={`assets/geology-${context.currentPlanet?.name.toLowerCase()}.png`}
-              alt={currentPlanet?.name}
-            />
-          </Then>
-        </If>
-        <Else>
-          <Icon iconName={imageName} />
-        </Else>
+        {context.currentPlanetSpec?.id === 2 && (
+          <Image
+            className={styles.geologyImage}
+            src={imageName}
+            alt={currentPlanet?.name}
+          />
+        )}
+        <Icon iconName={imageName} />
       </div>
       <div className={styles.planetCopy}>
         <h2 className={styles.planetCopyTextHeader}>{currentPlanet?.name}</h2>

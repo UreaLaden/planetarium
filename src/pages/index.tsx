@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { styles } from "@/styles/Home.css";
 import "@/styles/Home.module.css";
 import fs from "fs/promises";
 import path from "path";
@@ -9,14 +8,11 @@ import {
   PlanetContext,
   PlanetContextProps,
 } from "@/utils/planet-context";
-import NavigationCard from "@/component/NavigationCard";
-import { Icon, initializeIcons, registerIcons } from "@fluentui/react";
-import { SVGIcons, planetData } from "@/utils/helpers";
-import NavBar from "@/component/NavBar";
 import Layout from "@/component/Layout";
 
 interface ResponseProps {
   planets: Planet[];
+  geologyImages: string[];
 }
 
 export const Home = (props: ResponseProps) => {
@@ -24,7 +20,7 @@ export const Home = (props: ResponseProps) => {
   const [hydrated, setHydrated] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if(context.currentPlanet === undefined) return;
+    if (context.currentPlanet === undefined) return;
     context.setCurrentSpec(1);
     setHydrated(true);
   }, [context]);
@@ -52,8 +48,7 @@ export const getStaticProps = async () => {
   const filePath = path.join("public", "data", "data.json");
   const jsonData = await fs.readFile(filePath, "utf8");
   const data = JSON.parse(jsonData);
-
   return {
-    props: data,
+    props: { planets: data.planets},
   };
 };

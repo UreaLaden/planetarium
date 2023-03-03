@@ -29,8 +29,8 @@ export interface Planet {
   rotation: string;
   structure: PlanetSpec;
   temperature: string;
-  images: PlanetImages;
   colorScheme?: string;
+  images:PlanetImages;
   index?: number;
 }
 
@@ -117,7 +117,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       id:1,
       content: planet.overview.content,
       source: planet.overview.source,
-      image:planet.images.planet,
+      image:planet.images.planet.split('/assets/')[1].split('.')[0],
     };
     let geologySpec: PlanetSpec = {
       id:2,
@@ -129,7 +129,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       id:3,
       content: planet.structure.content,
       source: planet.structure.source,
-      image:planet.images.internal
+      image:planet.images.internal.split('/assets/')[1].split('.')[0],
     };
     let newPlanet: Planet = {
       id:planetIndex,
@@ -141,10 +141,10 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       rotation: planet.rotation,
       structure: structureSpec,
       temperature: planet.temperature,
-      images: planet.images,
+      images:planet.images,
       colorScheme: planetColors.get(planet.name) ?? "",
     };
-    console.table(newPlanet.images);
+    console.log(newPlanet)
     return newPlanet;
   };
 

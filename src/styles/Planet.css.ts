@@ -48,6 +48,7 @@ export const styles = mergeStyleSets({
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
+    position:'relative',
     "@media (width >= 1023px)":{
       gridRow:"1 / 11",
       gridColumn:"2 / 10"
@@ -168,6 +169,20 @@ export const styles = mergeStyleSets({
     svg:{
       
     }
+  },
+  geologyImageContainer:{
+    height:"100%",
+    width:"100%",
+    display:"flex",
+    justifyContent:'center',
+    alignItems:"center"
+  },
+  geologyImage:{
+    position:'absolute',
+    border:`2px solid ${Colors.MOONSTONE}`,
+    width:"50%",
+    height:"50%",
+    bottom:"0"
   }
 
 });

@@ -12,11 +12,13 @@ export const DetailButtons = () => {
   React.useEffect(() => {
     setIsSelected((isSelected) => {
       if (router.query.reportId) {
-        return parseInt(router.query.reportId[0]);
+        const id = parseInt(router.query.reportId[0]);
+        context.setCurrentSpec(id);
+        return id;
       }
       return 1;
     });
-  }, [context.currentPlanetSpec, router.query.reportId]);
+  }, [context, context.currentPlanetSpec, router.query.reportId]);
 
   const onOverviewButtonSelected = () => {
     context.setCurrentSpec(1);
