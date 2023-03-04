@@ -1,38 +1,148 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Planets fact site solution
 
-## Getting Started
+This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+**Note: Delete this note and update the table of contents based on what sections you keep.**
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
+
+### Screenshot
+
+![](./screenshot.jpg)
+
+# Mobile
+<p align='center'>
+  <img src='./public/assets/screenshot-mobile.png' height=400px/>
+</p>
+
+# Tablet
+<p align='center'>
+  <img src='./public/assets/screenshot-tablet.png' height=400px/>
+</p>
+
+# Desktop
+<p align='center'>
+  <img src='./public/assets/screenshot-pc.png' height=400px/>
+</p>
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [UreaLaden/planetarium](planetarium-five.vercel.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Styled Components](https://styled-components.com/) - For styles
+
+
+### What I learned
+
+- I didn't realize until I was basically done, but I can switch the orientation between landscape and portrait from the dev tools. Obviously this broke a lot of my mobile and tablet views. In my next project I'll be sure to account for this.
+- Although it was nice using this project as an introduction into using Next.js, I quickly learned it was really overkill for this project. There was really no need to use any type of routes as long as I had React context. In future projects, I'll keep this in mind.
+
+To see how you can add code snippets, see below:
+
+```html
+<h1>Some HTML code I'm proud of</h1>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```css
+.proud-of-this-css {
+  color: papayawhip;
+}
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```js
+const onOverviewButtonSelected = () => {
+    router.push({
+      pathname: "/planets/[planetId]/[reportId]",
+      query: { planetId: context.currentPlanet?.id, reportId: 1 },
+    });
+  };
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  const onStructureButtonSelected = () => {
+    router.push({
+      pathname: "/planets/[planetId]/[reportId]",
+      query: { planetId: context.currentPlanet?.id, reportId: 2 },
+    });
+  };
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  const onSurfaceButtonSelected = () => {
+    router.push({
+      pathname: "/planets/[planetId]/[reportId]",
+      query: { planetId: context.currentPlanet?.id, reportId: 3 },
+    });
+  };
+  const window: WindowSpec = useWindowSize();
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  const isMobileView = React.useMemo(() => {
+    return window.width < 765;
+  }, [window]);
 
-## Learn More
+  return (
+    <div className={styles.detailsButtonContainer}>
+      <Button
+        controlId={1}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"OVERVIEW"}
+        onButtonClicked={onOverviewButtonSelected}
+      />
+      <Button
+        controlId={2}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"STRUCTURE"}
+        onButtonClicked={onStructureButtonSelected}
+      />
+      <Button
+        controlId={3}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"SURFACE"}
+        onButtonClicked={onSurfaceButtonSelected}
+      />
+    </div>
+};
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Continued development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+I can definitely see improvement in my front end abilities. Moving forward I want to take more time on the 'frontend' to actually plan what I want to accomplish as it could have save me some time before installing NextJS.
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Website - [Leaundrae Mckinney](https://www.linkedin.com/in/leaundraemckinney)
+- Frontend Mentor - [@UreaLaden](https://www.frontendmentor.io/profile/urealaden)

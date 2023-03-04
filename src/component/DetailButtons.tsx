@@ -37,11 +37,26 @@ export const DetailButtons = () => {
 
   return (
     <div className={styles.detailsButtonContainer}>
-      <Button controlId={1} selectedItem={(id:number) => id === context.currentPlanetSpec?.id} isMobileView={isMobileView} title={"OVERVIEW"} onButtonClicked={onOverviewButtonSelected}        
+      <Button
+        controlId={1}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"OVERVIEW"}
+        onButtonClicked={onOverviewButtonSelected}
       />
-      <Button controlId={2} selectedItem={(id:number) => id === context.currentPlanetSpec?.id} isMobileView={isMobileView} title={"STRUCTURE"} onButtonClicked={onStructureButtonSelected}        
+      <Button
+        controlId={2}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"STRUCTURE"}
+        onButtonClicked={onStructureButtonSelected}
       />
-      <Button controlId={3} selectedItem={(id:number) => id === context.currentPlanetSpec?.id} isMobileView={isMobileView} title={"SURFACE"} onButtonClicked={onSurfaceButtonSelected}        
+      <Button
+        controlId={3}
+        selectedItem={(id: number) => id === context.currentPlanetSpec?.id}
+        isMobileView={isMobileView}
+        title={"SURFACE"}
+        onButtonClicked={onSurfaceButtonSelected}
       />
     </div>
   );
