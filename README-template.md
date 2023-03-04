@@ -62,7 +62,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I didn't realize until I was basically done, but I can switch the orientation between landscape and portrait from the dev tools. Obviously this broke a lot of my mobile and tablet views. In my next project I'll be sure to account for this.
 
 To see how you can add code snippets, see below:
 

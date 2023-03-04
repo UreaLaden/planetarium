@@ -6,48 +6,42 @@ import {
   PlanetContext,
   PlanetContextProps,
 } from "@/utils/planet-context";
-import { Icon, Image } from "@fluentui/react";
+import { Icon } from "@fluentui/react";
+import Image from "next/image";
 import { If, Then, Else } from "react-if";
+import { Geology } from "@/utils/helpers";
 
 export const PlanetContent = (props: any) => {
   const context = React.useContext<PlanetContextProps>(PlanetContext);
-  const [currentPlanet, setCurrentPlanet] = React.useState<Planet | undefined>(
-    undefined
-  );
-
-  React.useEffect(() => {
-    if (context.currentPlanet !== currentPlanet) {
-      setCurrentPlanet(context.currentPlanet);
-      context.setCurrentSpec(1);
-    }
-  }, [context, currentPlanet]);
 
   const imageName = React.useMemo(() => {
-    console.log(context.currentPlanetSpec?.image);
     if (context.currentPlanetSpec?.id == 2) {
-      return context.currentPlanet?.overview.image;
+      if(context.currentPlanet?.name){
+        let image = Geology.get(context.currentPlanet?.name);
+        if(image){
+          return image;
+        }
+      }
     }
     return context.currentPlanetSpec?.image;
-  }, [
-    context.currentPlanet?.overview.image,
-    context.currentPlanetSpec?.id,
-    context.currentPlanetSpec?.image,
-  ]);
+  }, [context.currentPlanet?.name, context.currentPlanetSpec?.id, context.currentPlanetSpec?.image]);
 
   return (
-    <div className={styles.contentContainer}>
+    <div className={styles.contentContainer} id={context.navItemsVisible ? "fade-in" : "fade-out"}>
       <div className={styles.planetImage}>
         {context.currentPlanetSpec?.id === 2 && (
           <Image
             className={styles.geologyImage}
-            src={imageName}
-            alt={currentPlanet?.name}
+            src={imageName?.substring(1) ?? ""}
+            alt={context.currentPlanet?.name ?? ""}
+            height={'150'}
+            width={'150'}
           />
         )}
-        <Icon iconName={imageName} />
+        <Icon iconName={context.currentPlanetSpec?.id === 2 ? context.currentPlanet?.overview.image : imageName} />
       </div>
-      <div className={styles.planetCopy}>
-        <h2 className={styles.planetCopyTextHeader}>{currentPlanet?.name}</h2>
+      <div className={styles.planetCopy} >
+        <h2 className={styles.planetCopyTextHeader}>{context.currentPlanet?.name}</h2>
         <div className={styles.planetCopyText}>
           {context.currentPlanetSpec?.content}
         </div>

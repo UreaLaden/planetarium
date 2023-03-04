@@ -1,4 +1,4 @@
-.navHeader {
+/* .navHeader {
     font-family: "Antonio Medium";
     margin: 0;
     font-size: 5vh;
@@ -10,8 +10,4 @@
     height:100%;
     display:grid;
     grid-template-columns: 3fr;
-    /* grid-template:10% 1fr / 1fr; */
-    /* row-gap:4%; */
-    /* position:relative; */
-    /* padding:5%; */
-}
+} */

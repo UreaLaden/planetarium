@@ -16,3 +16,73 @@ body{
   color:#FFFFFF;
 }
 
+@keyframes dropIn{
+  0%{
+      opacity:0;
+      transform:translateY(-25px);
+      z-index:-1;
+  }
+  50%{
+    opacity:.5;
+    transform:translateY(-10px);    
+  }
+  100%{
+      opacity:1;
+      transform:translateY(0px);
+      z-index:1;
+  }
+}
+@keyframes dropOut{
+  0%{
+      opacity:1;
+      transform:translateY(0px);
+      z-index:1;
+  }
+  50%{
+    opacity:.5;
+    transform:translateY(-10px);
+  }
+  100%{
+      opacity:0;
+      transform:translateY(-25px);
+      z-index: -1;
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity:1;
+    z-index:-1;
+  }
+  100%{
+    opacity:1;
+    z-index:1;
+  }
+}
+
+@keyframes fadeOut{
+  0%{
+    opacity:-1;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+#drop-in{
+  animation:dropIn 100ms ease-in forwards;
+  pointer-events:auto;
+}
+
+#drop-out{
+  animation:dropOut 150ms ease-out forwards;
+  pointer-events:none;
+}
+
+#fade-in{
+  animation:fadeIn 250ms ease-in forwards;
+}
+#fade-out{
+  animation:fadeOut 500ms ease-out forwards;
+}
+

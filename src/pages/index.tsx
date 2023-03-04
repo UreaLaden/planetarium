@@ -21,7 +21,6 @@ export const Home = (props: ResponseProps) => {
 
   React.useEffect(() => {
     if (context.currentPlanet === undefined) return;
-    context.setCurrentSpec(1);
     setHydrated(true);
   }, [context]);
 

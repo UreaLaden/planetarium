@@ -32,7 +32,7 @@ export const styles = mergeStyleSets({
   detailsButton: {
     background: "none",
     pointerEvents:"auto",
-    border: `1px solid ${Colors.WHITE_40}`,
+    border: "none",
     color: Colors.WHITE,
     fontFamily: "Spartan SemiBold",
     "@media (width >= 1023px)": {
@@ -62,7 +62,6 @@ export const styles = mergeStyleSets({
       width: "100%",
       ":hover": {
         cursor: "pointer",
-        borderBottom: `3px solid ${Colors.MOONSTONE}`,
       },
     },
   },

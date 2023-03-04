@@ -8,11 +8,12 @@ import * as React from 'react';
 
 interface NavigationCardProps {
   planet:Planet;
+  onItemSelected:() => void;
 }
 
 export const NavigationCard = (props: NavigationCardProps) => {
     const context = React.useContext<PlanetContextProps>(PlanetContext);
-  const { planet } = props;
+  const { planet,onItemSelected } = props;
   const router = useRouter();
   const window = useWindowSize();
 
@@ -40,6 +41,7 @@ export const NavigationCard = (props: NavigationCardProps) => {
             query:{planetId:planet.id}
         });
         context.showPlanet(planet);
+        onItemSelected();
         }}
         >
       <div className={styles.colorScheme} style={navigationCardStyles}></div>

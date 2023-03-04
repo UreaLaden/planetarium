@@ -50,3 +50,14 @@ export const enum Colors {
     INDIAN_YELLOW="#EDA249",
     WHITE_40="rgba(255,255,255,.4)"
 }
+
+
+export const Geology:Map<string,string> = new Map();
+Geology.set("mercury",`assets/geology-mercury.png`);
+Geology.set("venus",`assets/geology-venus.png`);
+Geology.set("earth",`assets/geology-earth.png`);
+Geology.set("mars",`assets/geology-mars.png`);
+Geology.set("jupiter",`assets/geology-jupiter.png`);
+Geology.set("saturn",`assets/geology-saturn.png`);
+Geology.set("uranus",`assets/geology-uranus.png`);
+Geology.set("neptune",`assets/geology-neptune.png`);

@@ -42,7 +42,6 @@ export const styles = mergeStyleSets({
     },
   },
   planetImage: {
-    border: `2px solid ${Colors.CG_RED}`,
     width: "100%",
     height: "100%",
     display:'flex',
@@ -179,9 +178,8 @@ export const styles = mergeStyleSets({
   },
   geologyImage:{
     position:'absolute',
-    border:`2px solid ${Colors.MOONSTONE}`,
-    width:"50%",
-    height:"50%",
+    width:"auto",
+    height:"auto",
     bottom:"0"
   }
 

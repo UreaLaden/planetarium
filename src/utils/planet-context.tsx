@@ -39,10 +39,12 @@ export interface PlanetContextProps {
   currentPlanet?: Planet;
   currentPlanetStats?: PlanetStats[];
   currentPlanetSpec?:PlanetSpec,
+  navItemsVisible:boolean
   populatePlanets: (rawPlanetData: Planet[]) => void;
   showPlanet: (planetToShow: Planet) => void;
   updatePlanetStats: (planet:Planet) => void;
   setCurrentSpec: (id:number) => void;
+  showNavItems:() => void;
 }
 
 export interface PlanetContextProviderProps {
@@ -54,10 +56,12 @@ export const PlanetContext = React.createContext<PlanetContextProps>({
   currentPlanet: undefined,
   currentPlanetStats: [],
   currentPlanetSpec:undefined,
+  navItemsVisible:false,
   populatePlanets: (rawPlanetData: Planet[]) => {},
   showPlanet: (planetToShow: Planet) => {},
   updatePlanetStats: (planet:Planet) => {},
-  setCurrentSpec: (id:number) => {}
+  setCurrentSpec: (id:number) => {},
+  showNavItems:() => {}
 });
 
 export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
@@ -69,6 +73,7 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
   );
   const [stats, setStats] = React.useState<PlanetStats[]>([]);
   const [spec,setSpec] = React.useState<PlanetSpec | undefined>(undefined);
+  const [navBarItemsVisible,setNavItemsVisible] = React.useState<boolean>(false);
 
   const setSpecHandler = (id:number) =>{
     if(currentPlanet === undefined) return;
@@ -96,20 +101,18 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       statistic:planet.temperature
     }
     setStats([rotation,revolution,radius,temp]);
-    setSpecHandler(1);
   };
 
   const setAllPlanetsHandler = (inputPlanets: Planet[]) => {
     const planetList = createPlanetList(inputPlanets);
     setAllPlanets(allPlanets => planetList);
     setCurrentPlanetHandler(planetList[0]);
-    setSpecHandler(1);
   };
 
   const setCurrentPlanetHandler = (planetToShow: Planet) => {
     setCurrentPlanet((currentPlanet) => planetToShow);
     setStatsHandler(planetToShow);
-    setSpecHandler(1);
+    setSpec(planetToShow.overview);
   };
 
   const generatePlanet = (planet: Planet, planetIndex: number): Planet => {
@@ -144,7 +147,6 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
       images:planet.images,
       colorScheme: planetColors.get(planet.name) ?? "",
     };
-    console.log(newPlanet)
     return newPlanet;
   };
 
@@ -157,15 +159,21 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
     return planetArray;
   };
 
+  const setNavItemsVisibleHandler = () => {
+    setNavItemsVisible(!navBarItemsVisible);
+  }
+
   const context = {
     planets: allPlanets,
     currentPlanet: currentPlanet,
     currentPlanetStats:stats,
     currentPlanetSpec:spec,
+    navItemsVisible:navBarItemsVisible,
     populatePlanets: setAllPlanetsHandler,
     showPlanet: setCurrentPlanetHandler,
     updatePlanetStats:setStatsHandler,
-    setCurrentSpec:setSpecHandler
+    setCurrentSpec:setSpecHandler,
+    showNavItems:setNavItemsVisibleHandler
   };
 
   return (
