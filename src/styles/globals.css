@@ -78,9 +78,9 @@ body{
 }
 
 #fade-in{
-  animation:fadeOut 250ms ease-in forwards;
+  animation:fadeIn 250ms ease-in forwards;
 }
 #fade-out{
-  animation:fadeIn 250ms ease-out forwards;
+  animation:fadeOut 250ms ease-out forwards;
 }
 
