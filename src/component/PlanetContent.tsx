@@ -13,16 +13,14 @@ export const PlanetContent = (props: any) => {
   const context = React.useContext<PlanetContextProps>(PlanetContext);
 
   const imageName = React.useMemo(() => {
-    if (context.currentPlanetSpec?.id == 2) {
-      if(context.currentPlanet?.name){
-        let image = Geology.get(context.currentPlanet?.name);
+    if (context.currentPlanetSpec?.id == 2 && context.currentPlanet) {
+      const image = Geology.get(context.currentPlanet.name)
         if(image){
           return image;
         }
-      }
     }
     return context.currentPlanetSpec?.image;
-  }, [context.currentPlanet?.name, context.currentPlanetSpec?.id, context.currentPlanetSpec?.image]);
+  }, [context.currentPlanet, context.currentPlanetSpec?.id, context.currentPlanetSpec?.image]);
 
   return (
     <div className={styles.contentContainer} id={context.navItemsVisible ? "fade-in" : "fade-out"}>

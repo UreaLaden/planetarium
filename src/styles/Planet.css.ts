@@ -174,13 +174,29 @@ export const styles = mergeStyleSets({
     width:"100%",
     display:"flex",
     justifyContent:'center',
-    alignItems:"center"
+    alignItems:"center",
+    opacity:'inherit'
   },
   geologyImage:{
     position:'absolute',
     width:"auto",
     height:"auto",
-    bottom:"0"
+    bottom:"0",
+    "@media (width >= 1023px)":{
+      maxWidth:"20vw",
+      maxHeight:"20vh",
+      bottom:"5%"
+    },
+    "@media (765px < width < 1023px)": {
+      maxWidth:"20vw",
+      maxHeight:"20vh",
+      bottom:"8%"
+    },
+    "@media (320px < width < 480px)": {
+      maxWidth:"30vw",
+      maxHeight:"30vh",
+      bottom:"0"
+    }
   }
 
 });

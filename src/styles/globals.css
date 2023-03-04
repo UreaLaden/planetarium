@@ -51,21 +51,19 @@ body{
 
 @keyframes fadeIn{
   0%{
-    opacity:1;
-    z-index:-1;
+    opacity:0;
   }
   100%{
     opacity:1;
-    z-index:1;
   }
 }
 
 @keyframes fadeOut{
   0%{
-    opacity:-1;
+    opacity:1;
   }
   100%{
-    opacity:1;
+    opacity:0;
   }
 }
 
@@ -80,9 +78,9 @@ body{
 }
 
 #fade-in{
-  animation:fadeIn 250ms ease-in forwards;
+  animation:fadeOut 250ms ease-in forwards;
 }
 #fade-out{
-  animation:fadeOut 500ms ease-out forwards;
+  animation:fadeIn 500ms ease-out forwards;
 }
 
