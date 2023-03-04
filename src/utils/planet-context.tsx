@@ -44,7 +44,7 @@ export interface PlanetContextProps {
   showPlanet: (planetToShow: Planet) => void;
   updatePlanetStats: (planet:Planet) => void;
   setCurrentSpec: (id:number) => void;
-  showNavItems:() => void;
+  showNavItems:(showNavItems:boolean) => void;
 }
 
 export interface PlanetContextProviderProps {
@@ -61,7 +61,7 @@ export const PlanetContext = React.createContext<PlanetContextProps>({
   showPlanet: (planetToShow: Planet) => {},
   updatePlanetStats: (planet:Planet) => {},
   setCurrentSpec: (id:number) => {},
-  showNavItems:() => {}
+  showNavItems:(showNavItems:boolean) => {}
 });
 
 export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
@@ -159,8 +159,8 @@ export const PlanetContextProvider: React.FC<PlanetContextProviderProps> = (
     return planetArray;
   };
 
-  const setNavItemsVisibleHandler = () => {
-    setNavItemsVisible(!navBarItemsVisible);
+  const setNavItemsVisibleHandler = (showNavItems:boolean) => {
+    setNavItemsVisible(showNavItems);
   }
 
   const context = {

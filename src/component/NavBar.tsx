@@ -25,15 +25,19 @@ export const NavBar = () => {
   };
   
   const onNavItemSelected = React.useCallback(() => {
-    if (!isMobileView) return;
-    setNavId("drop-out");
+    if (!isMobileView){
+      navItemRef.current?.removeAttribute('id');
+      context.showNavItems(true);
+    }else{
+      setNavId("drop-out");
+    }
   }, [isMobileView]);
 
 
   React.useEffect(() => {
     if (navItemRef.current) {
       navItemRef.current.setAttribute("id", navId);
-      context.showNavItems();
+      context.showNavItems(true);
     }
   }, [navId]);
 
