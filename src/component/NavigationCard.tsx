@@ -31,8 +31,17 @@ export const NavigationCard = (props: NavigationCardProps) => {
     return (planet.id <= 0 || planet.id >= context.planets.length - 1);
   },[planet.id,context.planets.length])
 
+  const onMouseEnterEvent = () => {
+    if(!isMobileView){
+    }
+  }
+  const onMouseLeaveEvent = () => {
+    if(!isMobileView){
+    }
+  }
+
   return (
-    <div 
+    <button 
         className={styles.navigationCardContainer}
         style={{borderBottom: isFirstOrLastPlanet ? 'none' : isMobileView ? `1px solid ${Colors.WHITE_40}` : 'none' }}
         onClick={() => {
@@ -43,11 +52,13 @@ export const NavigationCard = (props: NavigationCardProps) => {
         context.showPlanet(planet);
         onItemSelected();
         }}
+        onMouseEnter={onMouseEnterEvent}
+        onMouseLeave={onMouseLeaveEvent}
         >
       <div className={styles.colorScheme} style={navigationCardStyles}></div>
       <div className={styles.planetName}>{planet.name}</div>
       <Icon className={styles.icon} iconName={"icon-chevron"} />
-    </div>
+    </button>
   );
 };
 

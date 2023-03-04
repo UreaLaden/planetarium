@@ -64,6 +64,7 @@ export const styles = mergeStyleSets({
   planetCopy: {
     width: "100%",
     height: "100%",
+    maxHeight:"100%",
     "@media (width >= 1023px)":{
       gridRow:"1 / 8",
       gridColumn:"10 / 14",
@@ -80,7 +81,7 @@ export const styles = mergeStyleSets({
       flexDirection: "column",
       justifyContent:"center",
       alignItems: "left",
-      rowGap:"5%"
+      rowGap:"auto"
     },
     "@media (320px < width < 480px)": {
       gridRow: "6 / 10",
@@ -162,6 +163,10 @@ export const styles = mergeStyleSets({
     textDecoration:"underline",
     fontWeight:"bold",
     color:Colors.WHITE_40,
+    pointerEvents:'auto',
+    ":hover":{
+      pointer:'cursor'
+    }
   },
   planetSourceIcon:{
     paddingLeft:".5rem",

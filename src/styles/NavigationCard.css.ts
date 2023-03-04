@@ -6,6 +6,11 @@ export const styles = mergeStyleSets({
         display:'flex',
         height:'12%',
         alignItems:'center',
+        backgroundColor:Colors.RICH_BLACK,
+        color:Colors.WHITE,
+        border:`none`,
+        textAlign:"left",
+        width:"100%",
         ":hover":{
             cursor:"pointer",
         }
@@ -22,7 +27,9 @@ export const styles = mergeStyleSets({
             display:'none'
         },
         "@media (320px < width < 480px)": {
-            display:'unset'
+            display:'unset',
+            height:"20px",
+            width:"20px"
         }
     },
     planetName:{
