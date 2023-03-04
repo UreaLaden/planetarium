@@ -2,13 +2,11 @@ import { styles } from "@/styles/Planet.css";
 import * as React from "react";
 import PlanetStats from "./PlanetStats";
 import {
-  Planet,
   PlanetContext,
   PlanetContextProps,
 } from "@/utils/planet-context";
 import { Icon } from "@fluentui/react";
 import Image from "next/image";
-import { If, Then, Else } from "react-if";
 import { Geology } from "@/utils/helpers";
 
 export const PlanetContent = (props: any) => {
