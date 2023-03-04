@@ -16,7 +16,6 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -30,7 +29,6 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
 
 # Mobile
 <p align='center'>
@@ -49,7 +47,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Responsive Planet App](https://www.frontendmentor.io/solutions/responsive-planet-app-kd1_iCTFZG)
 - Live Site URL: [UreaLaden/planetarium](planetarium-five.vercel.app/)
 
 ## My process
